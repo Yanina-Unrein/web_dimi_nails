@@ -3,6 +3,7 @@ import Image from "next/image";
 interface WorkCardProps {
   index: number;
   image?: string;
+  label?: string;
 }
 
 export default function WorkCard({ index, image }: WorkCardProps) {
