@@ -170,7 +170,7 @@ export default function SobreMiPage() {
           <SectionHeader tag={a.worksTag} title={a.worksTitle} subtitle={a.worksSub} />
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
             {WORKS.map((label, i) => (
-              <WorkCard key={i} index={i} label={label} />
+              <WorkCard key={i} index={i} />
             ))}
           </div>
           <div className="text-center mt-10">
