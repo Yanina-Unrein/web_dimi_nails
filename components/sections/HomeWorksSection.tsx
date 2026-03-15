@@ -17,7 +17,7 @@ export default function HomeWorksSection() {
   const { t } = useLang();
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 lg:pt-0 pb-24 px-6">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           tag={t.homeWorks.tag}

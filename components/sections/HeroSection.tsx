@@ -7,7 +7,7 @@ export default function HeroSection() {
   const { t } = useLang();
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-32 lg:pt-0">
       {/* Background */}
       <div
         className="absolute inset-0"
@@ -61,11 +61,13 @@ export default function HeroSection() {
         </div>
 
         {/* IMAGE */}
-        <div className="relative w-full h-[500px] rounded-xl">
+        <div className="relative w-full aspect-[4/5] lg:aspect-auto lg:h-[500px] rounded-xl">
           <Image
             src="/images/caro_chibi.webp"
             alt="Press on nails"
             fill
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
             className="object-contain rounded-xl"
           />
         </div>
