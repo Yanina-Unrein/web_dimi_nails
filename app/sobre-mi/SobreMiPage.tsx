@@ -25,18 +25,6 @@ const COLOURS = [
   { color: "linear-gradient(135deg,#c9a84c,#f5d78e,#c9a84c)",            name: "Gold Foil" },
 ];
 
-const WORKS = [
-  "French nail art ✦",
-  "Ombré rose 💅",
-  "Coffin press on 🖤",
-  "Spring design 🌸",
-  "Neon stiletto ✨",
-  "Marble luxury 🤍",
-  "Glitter fade ✦",
-  "Negative space 🖤",
-  "Floral detail 🌺",
-];
-
 export default function SobreMiPage() {
   const { t } = useLang();
   const a = t.about;
@@ -169,8 +157,12 @@ export default function SobreMiPage() {
         <div className="max-w-6xl mx-auto">
           <SectionHeader tag={a.worksTag} title={a.worksTitle} subtitle={a.worksSub} />
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
-            {WORKS.map((label, i) => (
-              <WorkCard key={i} index={i} />
+            {Array.from({ length: 12 }).map((_, i) => (
+              <WorkCard
+                key={i}
+                index={i}
+                image={`/images/works/work${i + 1}.webp`}
+              />
             ))}
           </div>
           <div className="text-center mt-10">

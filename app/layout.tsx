@@ -5,7 +5,10 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-   metadataBase: new URL("https://dimi-nails.vercel.app"),
+  metadataBase: new URL("https://dimi-nails.vercel.app"),
+  icons: {
+    icon: "/images/logo/logo_dimi_nails.svg",
+  },
 
   openGraph: {
     title: "Dimi Nails | Luxury Press On Nails",

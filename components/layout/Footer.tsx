@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLang } from "@/context/LangContext";
+import Image from "next/image";
 
 // This is a Server Component wrapper — the actual client content is split out
 // so layout.tsx (server) can import Footer, but Footer itself uses useLang (client).
@@ -23,23 +24,33 @@ export default function Footer() {
         className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-48"
         style={{ background: "linear-gradient(90deg, transparent, #c4186a, #c9a84c, #c4186a, transparent)" }}
       />
-
-      <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-12">
+      <div className="max-w-screen-xl mx-auto px-6 md:px-8 lg:px-10 py-16 grid grid-cols-1 md:grid-cols-3 items-center gap-8 lg:gap-12 text-center md:text-left">
         {/* Brand */}
-        <div>
-          <div className="mb-4">
-            <span className="font-script text-[1rem] text-[#e05585] block leading-none">Dimi</span>
-            <span className="font-script text-[1.8rem] text-[#c9a84c] block leading-tight">nails</span>
+        <div className="flex flex-col md:flex-row lg:flex-row gap-6 items-center">
+          <div className="flex items-center justify-center">
+            <Image
+              src="/images/logo/logo_dimi_nails.svg"
+              alt="logo dimi nails"
+              width={100}
+              height={100}
+              className="object-contain md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]"
+            />
           </div>
-          <p className="font-body text-sm text-[#fdf6f0]/50 leading-relaxed max-w-xs">
-            {t.footer.tagline}
-          </p>
+          <div>
+            <div className="mb-4">
+              <span className="font-script text-[1rem] text-[#e05585] block leading-none">Dimi</span>
+              <span className="font-script text-[1.8rem] text-[#c9a84c] block leading-tight">nails</span>
+            </div>
+            <p className="font-body text-sm text-[#fdf6f0]/50 leading-relaxed max-w-xs">
+              {t.footer.tagline}
+            </p>
+          </div>
         </div>
 
         {/* Nav */}
-        <div>
+        <div className="flex flex-col items-center">
           <h4 className="section-tag mb-5">{t.footer.nav}</h4>
-          <ul className="space-y-3">
+          <ul className="space-y-3 text-center">
             {links.map(({ href, label }) => (
               <li key={href}>
                 <Link
@@ -54,13 +65,13 @@ export default function Footer() {
         </div>
 
         {/* Follow */}
-        <div>
+        <div className="flex flex-col items-center">
           <h4 className="section-tag mb-5">{t.footer.follow}</h4>
           <a
             href="https://www.instagram.com/dimi_nails_by_caroperez/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 group"
+            className="inline-flex items-center justify-center gap-3 group"
           >
             <div
               className="w-9 h-9 rounded-lg flex items-center justify-center transition-opacity group-hover:opacity-80"
@@ -71,7 +82,7 @@ export default function Footer() {
               </svg>
             </div>
             <span className="font-body text-sm text-[#fdf6f0]/60 group-hover:text-[#fdf6f0] transition-colors">
-              @dimi_nails_by_caroperez
+              @dimi_nails
             </span>
           </a>
         </div>

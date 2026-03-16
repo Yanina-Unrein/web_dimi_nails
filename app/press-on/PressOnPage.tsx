@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useLang } from "@/context/LangContext";
 import SectionHeader from "@/components/ui/SectionHeader";
+import Image from "next/image";
 
 export default function PressOnPage() {
   const { t } = useLang();
@@ -73,20 +74,27 @@ export default function PressOnPage() {
         <div className="max-w-5xl mx-auto">
           <SectionHeader tag={p.shapesTag} title={p.shapesTitle} />
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {p.shapes.map(({ name, desc }) => (
-              <button
+            {p.shapes.map(({ name, desc, image }) => (
+              <article
                 key={name}
-                onClick={() => setActiveShape(activeShape === name ? null : name)}
-                className={`glass p-6 text-left transition-all duration-300 hover:-translate-y-1 ${
-                  activeShape === name ? "border-[rgba(201,168,76,0.5)] shadow-[0_0_30px_rgba(201,168,76,0.12)]" : ""
-                }`}
-                style={activeShape === name ? { borderColor: "rgba(201,168,76,0.5)" } : {}}
+                className="glass p-6 text-center transition-all duration-300 hover:-translate-y-1"
               >
-                <h3 className={`font-display text-xl font-light mb-2 transition-colors ${
-                  activeShape === name ? "text-[#c9a84c]" : "text-[#fdf6f0]"
-                }`}>{name}</h3>
-                <p className="font-body text-xs text-[#fdf6f0]/50 leading-relaxed">{desc}</p>
-              </button>
+                <div className="relative w-full h-40 mb-4">
+                  <Image
+                    src={image}
+                    alt={name}
+                    fill
+                    sizes="(max-width:768px) 50vw, 200px"
+                    className="object-contain"
+                  />
+                </div>
+                <h3 className="font-display text-xl font-light text-[#fdf6f0] mb-2">
+                  {name}
+                </h3>
+                <p className="font-body text-xs text-[#fdf6f0]/50 leading-relaxed">
+                  {desc}
+                </p>
+              </article>
             ))}
           </div>
         </div>
